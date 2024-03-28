@@ -1,12 +1,25 @@
 export const routes = [
-  { path: '/', redirect: '/dashboard' },
+  { path: '/', redirect: '/home' },
   {
     path: '/',
     component: () => import('@/layouts/default.vue'),
     children: [
+      // Admin Routes
       {
         path: 'dashboard',
         component: () => import('@/pages/dashboard.vue'),
+      },
+      {
+        path: 'new-tender',
+        component: () => import('@/pages/new-tender.vue'),
+      },
+      {
+        path: 'victory-tender',
+        component: () => import('@/pages/victory-tender.vue'),
+      },
+      {
+        path: 'close-tender',
+        component: () => import('@/pages/close-tender.vue'),
       },
       {
         path: 'account-settings',
@@ -37,6 +50,10 @@ export const routes = [
       {
         path: '/:pathMatch(.*)*',
         component: () => import('@/pages/[...error].vue'),
+      },
+      {
+        path: 'home',
+        component: () => import('@/pages/home.vue'),
       },
     ],
   },
