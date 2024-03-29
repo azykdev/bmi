@@ -41,6 +41,7 @@ export const routes = [
     children: [
       {
         path: 'login',
+        name: 'login',
         component: () => import('@/pages/login.vue'),
       },
       {
@@ -53,8 +54,14 @@ export const routes = [
       },
       {
         path: 'home',
+        name: 'home',
         component: () => import('@/pages/home.vue'),
       },
+      {
+        path: 'citizen',
+        name: 'citizen',
+        component: () => import('@/pages/citizen.vue'),
+      }
     ],
   },
 ]

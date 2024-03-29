@@ -110,7 +110,6 @@ const isPasswordVisible = ref(false)
               </VBtn>
             </VCol>
 
-            <!-- login instead -->
             <VCol
               cols="12"
               class="text-center text-base"
