@@ -6,8 +6,9 @@ export const routes = [
     children: [
       // Admin Routes
       {
-        path: 'dashboard',
-        component: () => import('@/pages/dashboard.vue'),
+        path: 'authority-dashboard',
+        name: 'authority-dashboard',
+        component: () => import('@/pages/authority-dashboard.vue'),
       },
       {
         path: 'new-tender',

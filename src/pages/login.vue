@@ -16,7 +16,6 @@ const form = ref({
   password: '',
 })
 
-
 const authThemeMask = computed(() => {
   return vuetifyTheme.global.name.value === 'light' ? authV1MaskLight : authV1MaskDark
 })
@@ -26,7 +25,7 @@ const isPasswordVisible = ref(false)
 const submitForm = () => {
   console.log(form.value)
   if (form.value.email === 'admin' && form.value.password === 'admin') {
-    router.push({ name: 'home' })
+    router.push({ name: 'authority-dashboard' })
   }
 }
 </script>
