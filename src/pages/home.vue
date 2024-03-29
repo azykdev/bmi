@@ -1,6 +1,9 @@
 <template>
   <div id="home">
-    <div id="home-wrapper">
+    <div
+      id="home-wrapper"
+      class="max-w-[100%] overflow-hidden"
+    >
       <HomeDialog />
       <HomeNavbar />
       <HomeHeader />
@@ -10,15 +13,10 @@
 </template>
 
 <script setup>
-import HomeNavbar from '@/views/pages/home/HomeNavbar.vue';
-import HomeHeader from '@/views/pages/home/HomeHeader.vue';
-import HomeMain from '@/views/pages/home/HomeMain.vue';
-import HomeDialog from '@/components/dialogs/HomeDialog.vue';
-
-
+import HomeNavbar from '@/views/pages/home/HomeNavbar.vue'
+import HomeHeader from '@/views/pages/home/HomeHeader.vue'
+import HomeMain from '@/views/pages/home/HomeMain.vue'
+import HomeDialog from '@/components/dialogs/HomeDialog.vue'
 </script>
 
-<style scoped>
-  
-</style>
-
+<style scoped></style>
