@@ -36,7 +36,7 @@
         <!-- 👉 Illustration -->
         <div class="flex justify-center mt-10">
           <img
-            src="https://img.freepik.com/free-vector/isometric-smart-city-background_52683-7533.jpg?t=st=1711636056~exp=1711639656~hmac=51e29f0896c5db7a27cab378343592c78dc5069f3938a4c7baeeb3e97977da17&w=1060"
+            src="https://images.pexels.com/photos/681331/pexels-photo-681331.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="home header"
             class="w-[1000px] md:h-[500px] h-[300px] rounded-xl object-cover shadow-2xl"
           />

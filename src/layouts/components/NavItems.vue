@@ -1,18 +1,18 @@
 <script setup>
-import VerticalNavSectionTitle from '@/@layouts/components/VerticalNavSectionTitle.vue';
-import VerticalNavGroup from '@layouts/components/VerticalNavGroup.vue';
-import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
+import VerticalNavSectionTitle from '@/@layouts/components/VerticalNavSectionTitle.vue'
+import VerticalNavGroup from '@layouts/components/VerticalNavGroup.vue'
+import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
 </script>
 
 <template>
   <!-- 👉 Dashboards -->
   <VerticalNavLink
-      :item="{
-        title: 'Dashboard',
-        to: '/dashboard',
-        icon: 'ri-dashboard-line',
-      }"
-    />
+    :item="{
+      title: 'Dashboard',
+      to: '/authority-dashboard',
+      icon: 'ri-dashboard-line',
+    }"
+  />
 
   <!-- 👉 Front Pages -->
   <!-- <VerticalNavGroup
@@ -54,29 +54,24 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
     }"
   >
     <VerticalNavLink
-    :item="{
+      :item="{
         title: 'Yangi tender',
         to: '/new-tender',
       }"
     />
     <VerticalNavLink
-    :item="{
+      :item="{
         title: 'Tender g\'olibi',
         to: '/victory-tender',
       }"
     />
     <VerticalNavLink
-    :item="{
+      :item="{
         title: 'Tenderni yopish',
         to: '/close-tender',
       }"
     />
-    
-    
   </VerticalNavGroup>
-  
-
-  
 
   <!-- 👉 User Interface -->
   <VerticalNavSectionTitle
@@ -84,7 +79,7 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
       heading: 'User Interface',
     }"
   />
-  
+
   <VerticalNavLink
     :item="{
       title: 'Icons',
@@ -92,22 +87,4 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
       to: '/icons',
     }"
   />
-  
-
-  <!-- 👉 Forms & Tables -->
-  <VerticalNavSectionTitle
-    :item="{
-      heading: 'Forms & Tables',
-    }"
-  />
-  
-  
-  <!-- 👉 Others -->
-  <VerticalNavSectionTitle
-    :item="{
-      heading: 'Others',
-    }"
-  />
-  
-  
 </template>

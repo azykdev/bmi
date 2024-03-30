@@ -1,7 +1,6 @@
 <script setup>
 import { useTheme } from 'vuetify'
 import AuthProvider from '@/views/pages/authentication/AuthProvider.vue'
-import logo from '@images/logo.svg?raw'
 import authV1MaskDark from '@images/pages/auth-v1-mask-dark.png'
 import authV1MaskLight from '@images/pages/auth-v1-mask-light.png'
 import authV1Tree2 from '@images/pages/auth-v1-tree-2.png'
@@ -34,22 +33,20 @@ const isPasswordVisible = ref(false)
       <VCardItem class="justify-center">
         <template #prepend>
           <div class="d-flex">
-            <div v-html="logo" />
+            <img
+              src="@/assets/images/logo.png"
+              alt=""
+              width="50px"
+            />
           </div>
         </template>
 
-        <VCardTitle class="font-weight-semibold text-2xl text-uppercase">
-          Materio
-        </VCardTitle>
+        <VCardTitle class="font-weight-semibold text-2xl text-uppercase"> Selling House </VCardTitle>
       </VCardItem>
 
       <VCardText class="pt-2">
-        <h5 class="text-h5 font-weight-semibold mb-1">
-          Adventure starts here 🚀
-        </h5>
-        <p class="mb-0">
-          Make your app management easy and fun!
-        </p>
+        <h5 class="text-h5 font-weight-semibold mb-1">Adventure starts here 🚀</h5>
+        <p class="mb-0">Make your app management easy and fun!</p>
       </VCardText>
 
       <VCardText>
@@ -91,13 +88,14 @@ const isPasswordVisible = ref(false)
                 />
                 <VLabel
                   for="privacy-policy"
-                  style="opacity: 1;"
+                  style="opacity: 1"
                 >
                   <span class="me-1">I agree to</span>
                   <a
                     href="javascript:void(0)"
                     class="text-primary"
-                  >privacy policy & terms</a>
+                    >privacy policy & terms</a
+                  >
                 </VLabel>
               </div>
 
@@ -165,5 +163,5 @@ const isPasswordVisible = ref(false)
 </template>
 
 <style lang="scss">
-@use "@core/scss/pages/page-auth.scss";
+@use '@core/scss/pages/page-auth.scss';
 </style>
