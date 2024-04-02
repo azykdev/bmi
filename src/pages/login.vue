@@ -1,28 +1,41 @@
 <script setup>
-import { useTheme } from 'vuetify'
 import AuthProvider from '@/views/pages/authentication/AuthProvider.vue'
-import authV1MaskDark from '@images/pages/auth-v1-mask-dark.png'
-import authV1MaskLight from '@images/pages/auth-v1-mask-light.png'
+import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 
-const vuetifyTheme = useTheme()
+// COMPOSABLES
 const router = useRouter()
+const store = useStore()
 
+// DATA
 const form = ref({
   email: '',
   password: '',
 })
-
-const authThemeMask = computed(() => {
-  return vuetifyTheme.global.name.value === 'light' ? authV1MaskLight : authV1MaskDark
-})
-
 const isPasswordVisible = ref(false)
 
+// COMPUTED
+const accountType = computed(() => {
+  return store.state.auth.accountType
+})
+
+// METHODS
 const submitForm = () => {
-  console.log(form.value)
-  if (form.value.email === 'admin' && form.value.password === 'admin') {
-    router.push({ name: 'authority-dashboard' })
+  if (accountType.value.id == 'authority') {
+    if (form.value.email === 'admin' && form.value.password === 'admin') {
+      router.push({ name: 'authority-dashboard' })
+    } else {
+      alert('Wrong email or password')
+    }
+  } else if (accountType.value.id == 'construction-company') {
+    if (form.value.email === 'admin' && form.value.password === 'admin') {
+      router.push({ name: 'construction-dashboard' })
+    } else {
+      alert('Wrong email or password')
+    }
+  } else {
+    alert('nimadir xato')
   }
 }
 </script>

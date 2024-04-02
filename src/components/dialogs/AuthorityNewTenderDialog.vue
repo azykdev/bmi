@@ -169,9 +169,13 @@ export default {
       }
 
       if (validate) {
+        this.formData.constructionConditions = this.formData.constructionConditions.split('\n')
+
         console.log(this.formData)
 
-        this.$store.dispatch('authority/createNewTender', this.formData)
+        this.$store.dispatch('authority/createTender', this.formData).then(() => {
+          this.$store.dispatch('authority/getTenders')
+        })
         this.$store.commit('authority/setNewTenderDialog', false)
 
         this.formData = {

@@ -10,7 +10,14 @@
         :class="{ scrolled: scroll }"
       >
         <!-- left -->
-        <div>Logo</div>
+        <div class="flex items-center">
+          <img
+            src="@/assets/images/logo.png"
+            width="40"
+            alt=""
+          />
+          <span class="ml-2 font-bold text-xl">Selling House</span>
+        </div>
 
         <!-- right -->
         <div>

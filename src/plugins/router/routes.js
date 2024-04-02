@@ -2,42 +2,6 @@ export const routes = [
   { path: '/', redirect: '/home' },
   {
     path: '/',
-    component: () => import('@/layouts/default.vue'),
-    children: [
-      // Admin Routes
-      {
-        path: 'authority-dashboard',
-        name: 'authority-dashboard',
-        component: () => import('@/pages/authority-dashboard.vue'),
-      },
-      {
-        path: 'new-tender',
-        component: () => import('@/pages/new-tender.vue'),
-      },
-      {
-        path: 'victory-tender',
-        component: () => import('@/pages/victory-tender.vue'),
-      },
-      {
-        path: 'close-tender',
-        component: () => import('@/pages/close-tender.vue'),
-      },
-      {
-        path: 'account-settings',
-        component: () => import('@/pages/account-settings.vue'),
-      },
-      
-      {
-        path: 'icons',
-        component: () => import('@/pages/icons.vue'),
-      },
-      
-      
-      
-    ],
-  },
-  {
-    path: '/',
     component: () => import('@/layouts/blank.vue'),
     children: [
       {
@@ -65,4 +29,50 @@ export const routes = [
       }
     ],
   },
+  // Authority Routes
+  {
+    path: '/',
+    component: () => import('@/layouts/default.vue'),
+    children: [
+      {
+        path: 'authority-dashboard',
+        name: 'authority-dashboard',
+        component: () => import('@/pages/authority-dashboard.vue'),
+      },
+      {
+        path: 'tenders',
+        component: () => import('@/pages/tenders.vue'),
+      },
+      {
+        path: 'victory-tender',
+        component: () => import('@/pages/victory-tender.vue'),
+      },
+      {
+        path: 'close-tender',
+        component: () => import('@/pages/close-tender.vue'),
+      },
+      {
+        path: 'account-settings',
+        component: () => import('@/pages/account-settings.vue'),
+      },
+      
+      {
+        path: 'icons',
+        component: () => import('@/pages/icons.vue'),
+      },
+    ],
+  },
+
+  // Construction Routes
+  {
+    path: '/',
+    component: () => import('@/layouts/construction-company.vue'),
+    children: [
+      {
+        path: 'construction-dashboard',
+        name: 'construction-dashboard',
+        component: () => import('@/pages/construction-dashboard.vue'),
+      },
+    ],
+  }
 ]

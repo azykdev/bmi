@@ -26,6 +26,7 @@ declare module 'vue' {
     TableDensity: typeof import('./src/components/tables/TableDensity.vue')['default']
     TableFixedHeader: typeof import('./src/components/tables/TableFixedHeader.vue')['default']
     TableHeight: typeof import('./src/components/tables/TableHeight.vue')['default']
+    TenderCard: typeof import('./src/components/cards/TenderCard.vue')['default']
     ThemeSwitcher: typeof import('./src/@core/components/ThemeSwitcher.vue')['default']
     VueApexCharts: typeof import('vue3-apexcharts')['default']
   }

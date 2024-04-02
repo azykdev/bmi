@@ -55,8 +55,8 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
   >
     <VerticalNavLink
       :item="{
-        title: 'Yangi tender',
-        to: '/new-tender',
+        title: 'Tenderlar',
+        to: '/tenders',
       }"
     />
     <VerticalNavLink

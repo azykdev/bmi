@@ -1,0 +1,36 @@
+{
+  "authority_tenders": [
+    {
+      "id": "ba28",
+      "name": "Tender 1",
+      "adress": "Manzil 1",
+      "area": "123 ",
+      "fundsType": "Mahalliy budjet",
+      "constructionType": "No turar",
+      "constructionConditions": [
+        "shart 1",
+        "shart 2",
+        "Shart 3"
+      ],
+      "customer": "Buyurtmachi 1",
+      "lifetime": "2024-04-16",
+      "createdAt": "2024-04-02"
+    },
+    {
+      "id": "697b",
+      "name": "Tender 2",
+      "adress": "Manzil 2",
+      "area": "1232",
+      "fundsType": "Mahalliy budjet",
+      "constructionType": "Turar",
+      "constructionConditions": [
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+        "when an unknown printer took a galley of type and scrambled it to"
+      ],
+      "customer": "Buyurtmachi 123",
+      "lifetime": "2024-03-31",
+      "createdAt": "2024-04-02"
+    }
+  ]
+}
