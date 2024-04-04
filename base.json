@@ -26,10 +26,29 @@
       "constructionConditions": [
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "when an unknown printer took a galley of type and scrambled it to"
+        "when an unknown printer took a galley of type and scrambled it to",
+        " shart3",
+        " shart4",
+        " shart5"
       ],
       "customer": "Buyurtmachi 123",
       "lifetime": "2024-03-31",
+      "createdAt": "2024-04-02"
+    },
+    {
+      "id": "6973",
+      "name": "azizbek 1233",
+      "adress": "house 123",
+      "area": "1234",
+      "fundsType": "Mahalliy budjet",
+      "constructionType": "Turar",
+      "constructionConditions": [
+        "shart 1",
+        " shart2",
+        " shart3"
+      ],
+      "customer": "qwef",
+      "lifetime": "2222-12-12",
       "createdAt": "2024-04-02"
     }
   ]

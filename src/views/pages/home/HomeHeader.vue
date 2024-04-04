@@ -62,6 +62,6 @@ export default {
   border-radius: 50%;
   background: linear-gradient(90deg, #f59bff 0%, #ff69beeb 100%);
   z-index: 0;
-  filter: blur(300px);
+  filter: blur(3100px);
 }
 </style>

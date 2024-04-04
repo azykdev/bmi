@@ -11,7 +11,11 @@
       <AuthorityNewTenderDialog />
 
       <!-- Tenders -->
-      <VRow class="my-5" v-if="tenders">
+      <VRow
+        class="my-5"
+        v-if="tenders"
+        id="tenders"
+      >
         <TenderCard
           v-for="tender in tenders"
           :key="tender.id"

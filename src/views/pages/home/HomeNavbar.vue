@@ -74,9 +74,11 @@ export default {
 #home-navbar-content {
   background-color: #fff;
   transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
 }
 
 #home-navbar-content.scrolled {
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
 }
 </style>
+

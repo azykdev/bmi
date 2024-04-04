@@ -3,6 +3,7 @@
   <VCol
     cols="12"
     md="6"
+    id="tender-card-wrapper"
   >
     <VCard>
       <VCardItem class="bg-primary">
@@ -88,7 +89,7 @@
                 icon="ri-map-pin-line"
               />
               <span class="font-bold ms-2">Manzil:</span>
-              <span class="ms-3">{{ tender.constructionType }}</span>
+              <span class="ms-3">{{ tender.adress }}</span>
             </p>
           </VCol>
           <VCol
@@ -128,13 +129,13 @@
           >
             <VBtn
               color="info"
-              @click="$emit('open-tender', tender)"
+              @click="getEditData(tender.id)"
               icon="mdi mdi-pencil"
             >
             </VBtn>
             <VBtn
               color="error"
-              @click="$emit('open-tender', tender)"
+              @click="deleteTender(tender.id)"
               class="ms-2"
               icon="mdi mdi-delete"
             >
@@ -147,14 +148,25 @@
 </template>
 
 <script>
-import { VSpacer } from 'vuetify/lib/components/index.mjs'
-
 export default {
   name: 'TenderCard',
   props: {
     tender: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    getEditData(id) {
+      console.log(id)
+      this.$store.dispatch('authority/getTender', id).then(res => {
+        this.$store.commit('authority/setNewTenderDialog', true)
+      })
+    },
+    deleteTender(id) {
+      this.$store.dispatch('authority/deleteTender', id).then(() => {
+        this.$store.dispatch('authority/getTenders')
+      })
     },
   },
 }

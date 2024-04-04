@@ -8,7 +8,7 @@ const AuthorityService = {
 
   // Get tender
   getTender: (id) => {
-    return axios.post('/authority-tenders/{id}');
+    return axios.get(`/authority_tenders/${id}/`);
   },
 
   // Create new tender
@@ -17,14 +17,14 @@ const AuthorityService = {
   },
 
   // Update tender
-  // updateTender: (data) => {
-  //   return axios.post('/authority-update-tender', data);
-  // },
+  updateTender: (data) => {
+    return axios.put(`/authority_tenders/${data.id}`, data);
+  },
 
   // Delete tender
-  // deleteTender: (data) => {
-  //   return axios.post('/authority-delete-tender', data);
-  // },
+  deleteTender: (id) => {
+    return axios.delete(`/authority_tenders/${id}`);
+  },
 
 };
 
