@@ -56,19 +56,19 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
     <VerticalNavLink
       :item="{
         title: 'Tenderlar',
-        to: '/tenders',
+        to: '/authority-tenders',
       }"
     />
     <VerticalNavLink
       :item="{
         title: 'Tender g\'olibi',
-        to: '/victory-tender',
+        to: '/authority-victory-tender',
       }"
     />
     <VerticalNavLink
       :item="{
         title: 'Tenderni yopish',
-        to: '/close-tender',
+        to: '/authority-close-tender',
       }"
     />
   </VerticalNavGroup>

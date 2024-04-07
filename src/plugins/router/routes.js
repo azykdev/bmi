@@ -1,5 +1,7 @@
 export const routes = [
   { path: '/', redirect: '/home' },
+
+  // Blank Routes ============================ *** ============================
   {
     path: '/',
     component: () => import('@/layouts/blank.vue'),
@@ -25,11 +27,12 @@ export const routes = [
       {
         path: 'citizen',
         name: 'citizen',
-        component: () => import('@/pages/citizen.vue'),
+        component: () => import('@/pages/citizen/citizen.vue'),
       }
     ],
   },
-  // Authority Routes
+
+  // Authority Routes ========================== *** ============================
   {
     path: '/',
     component: () => import('@/layouts/default.vue'),
@@ -37,25 +40,29 @@ export const routes = [
       {
         path: 'authority-dashboard',
         name: 'authority-dashboard',
-        component: () => import('@/pages/authority-dashboard.vue'),
+        component: () => import('@/pages/authority/dashboard.vue'),
       },
       {
-        path: 'tenders',
-        component: () => import('@/pages/tenders.vue'),
+        path: 'authority-tenders',
+        name: 'authority-tenders',
+        component: () => import('@/pages/authority/tenders.vue'),
       },
       {
-        path: 'victory-tender',
-        component: () => import('@/pages/victory-tender.vue'),
+        path: 'authority-victory-tender',
+        name: 'authority-victory-tender',
+        component: () => import('@/pages/authority/victory-tender.vue'),
       },
       {
-        path: 'close-tender',
-        component: () => import('@/pages/close-tender.vue'),
+        path: 'authority-close-tender',
+        name: 'authority-close-tender',
+        component: () => import('@/pages/authority/close-tender.vue'),
       },
+
+      // ________________________________________________
       {
         path: 'account-settings',
         component: () => import('@/pages/account-settings.vue'),
       },
-      
       {
         path: 'icons',
         component: () => import('@/pages/icons.vue'),
@@ -63,7 +70,7 @@ export const routes = [
     ],
   },
 
-  // Construction Routes
+  // Construction Routes ======================== *** ============================
   {
     path: '/',
     component: () => import('@/layouts/construction-company.vue'),
@@ -71,8 +78,13 @@ export const routes = [
       {
         path: 'construction-dashboard',
         name: 'construction-dashboard',
-        component: () => import('@/pages/construction-dashboard.vue'),
+        component: () => import('@/pages/construction/dashboard.vue'),
       },
+      {
+        path: 'construction-tenders',
+        name: 'construction-tenders',
+        component: () => import('@/pages/construction/tenders.vue'),
+      }
     ],
   }
 ]

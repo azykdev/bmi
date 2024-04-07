@@ -29,20 +29,8 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
   >
     <VerticalNavLink
       :item="{
-        title: 'Yangi tender',
-        to: '/tenders',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Tender g\'olibi',
-        to: '/victory-tender',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Tenderni yopish',
-        to: '/close-tender',
+        title: 'Tenderlar',
+        to: '/construction-tenders',
       }"
     />
   </VerticalNavGroup>
