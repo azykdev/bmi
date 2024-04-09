@@ -121,6 +121,7 @@ export default {
         customer: '',
         lifetime: '',
         createdAt: new Date().toISOString().slice(0, 10),
+        participants: [],
       },
     }
   },
@@ -136,7 +137,7 @@ export default {
       }
 
       if (validate) {
-        this.formData.constructionConditions = this.formData.constructionConditions.split(',')
+        this.formData.constructionConditions = this.formData.constructionConditions.split('//')
 
         console.log(this.formData)
 
@@ -163,6 +164,7 @@ export default {
           customer: '',
           lifetime: '',
           createdAt: new Date().toISOString().slice(0, 10),
+          participants: [],
         }
       } else {
         alert("Malumotlarni to'ldiring")
@@ -176,6 +178,7 @@ export default {
   },
   mounted() {
     if (this.tender) {
+      this.tender.constructionConditions = this.tender.constructionConditions.join('//')
       this.formData = this.tender
     }
   },

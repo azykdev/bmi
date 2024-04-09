@@ -8,13 +8,22 @@
       "fundsType": "Mahalliy budjet",
       "constructionType": "No turar",
       "constructionConditions": [
-        "shart 1",
-        "shart 2",
-        "Shart 3"
+        "shart 1 ",
+        "shart 2 ",
+        " Shart 3 ",
+        " asgh"
       ],
       "customer": "Buyurtmachi 1",
       "lifetime": "2024-04-16",
-      "createdAt": "2024-04-02"
+      "createdAt": "2024-04-02",
+      "participants": [
+        {
+          "id": "100",
+          "name": "c1",
+          "email": "c1@gmail.com",
+          "password": "123"
+        }
+      ]
     },
     {
       "id": "697b",
@@ -30,23 +39,15 @@
       ],
       "customer": "Buyurtmachi 123",
       "lifetime": "2024-03-31",
-      "createdAt": "2024-04-02"
-    },
-    {
-      "id": "6973",
-      "name": "azizbek 1233",
-      "adress": "house 123",
-      "area": "1234",
-      "fundsType": "Mahalliy budjet",
-      "constructionType": "Turar",
-      "constructionConditions": [
-        "shart 1",
-        " shart2",
-        " shart3"
-      ],
-      "customer": "qwef",
-      "lifetime": "2222-12-12",
-      "createdAt": "2024-04-02"
+      "createdAt": "2024-04-02",
+      "participants": [
+        {
+          "id": "100",
+          "name": "c1",
+          "email": "c1@gmail.com",
+          "password": "123"
+        }
+      ]
     }
   ],
   "construction_companies": [

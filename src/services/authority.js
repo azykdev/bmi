@@ -26,6 +26,14 @@ const AuthorityService = {
     return axios.delete(`/authority_tenders/${id}`);
   },
 
+  attendTenderParticipants: (data) => {
+    return axios.put(`/authority_tenders/${data.id}`, data);
+  },
+
+  cancelTenderParticipants: (data) => {
+    return axios.put(`/authority_tenders/${data.id}`, data);
+  }
+
 };
 
 export default AuthorityService;

@@ -16,7 +16,7 @@
         v-if="tenders"
         id="tenders"
       >
-        <TenderCard
+        <AuthorityTenderCard
           v-for="tender in tenders"
           :key="tender.id"
           :tender="tender"
@@ -27,13 +27,14 @@
 </template>
 
 <script>
-import TenderCard from '@/components/cards/TenderCard.vue'
+import AuthorityTenderCard from '@/components/cards/AuthorityTenderCard.vue'
 import AuthorityNewTenderDialog from '@/components/dialogs/AuthorityNewTenderDialog.vue'
 
 export default {
   name: 'Tenders',
   components: {
     AuthorityNewTenderDialog,
+    AuthorityTenderCard,
   },
   mounted() {
     this.$store.dispatch('authority/getTenders', false)

@@ -103,6 +103,32 @@ const actions = {
           reject(error)
         })
     })
+  },
+
+  // Attend tender
+  attendTenderParticipants(context, data) {
+    return new Promise((resolve, reject) => {
+      AuthorityService.attendTenderParticipants(data)
+        .then(res => {
+          resolve(res)
+        })
+        .catch(error => {
+          reject(error)
+        })
+    })
+  },
+
+  // Cancel tender
+  cancelTenderParticipants(context, data) {
+    return new Promise((resolve, reject) => {
+      AuthorityService.cancelTenderParticipants(data)
+        .then(res => {
+          resolve(res)
+        })
+        .catch(error => {
+          reject(error)
+        })
+    })
   }
 }
 
