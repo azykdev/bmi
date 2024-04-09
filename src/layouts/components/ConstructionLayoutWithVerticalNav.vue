@@ -4,6 +4,15 @@ import VerticalNavLayout from '@layouts/components/VerticalNavLayout.vue'
 import Footer from '@/layouts/components/Footer.vue'
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue'
 import UserProfile from '@/layouts/components/UserProfile.vue'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
+
+// COMPUTED
+const constructionCompany = computed(() => {
+  return store.state.construction.constructionCompany
+})
 </script>
 
 <template>
@@ -43,7 +52,7 @@ import UserProfile from '@/layouts/components/UserProfile.vue'
 
         <NavbarThemeSwitcher class="me-2" />
 
-        <UserProfile />
+        <UserProfile v-if="constructionCompany" :constructionCompany="constructionCompany" />
       </div>
     </template>
 

@@ -1,5 +1,14 @@
 <script setup>
 import avatar1 from '@images/avatars/avatar-1.png'
+
+
+// PROPS
+defineProps({
+  constructionCompany: {
+    type: Object,
+    required: true,
+  }
+})
 </script>
 
 <template>
@@ -48,7 +57,7 @@ import avatar1 from '@images/avatars/avatar-1.png'
             </template>
 
             <VListItemTitle class="font-weight-semibold">
-              John Doe
+              {{ constructionCompany.name }}
             </VListItemTitle>
             <VListItemSubtitle>Admin</VListItemSubtitle>
           </VListItem>

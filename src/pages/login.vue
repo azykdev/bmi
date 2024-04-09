@@ -1,6 +1,7 @@
 <script setup>
+import { setItem } from '@/helpers/persistaneStorage';
 import AuthProvider from '@/views/pages/authentication/AuthProvider.vue'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
@@ -19,6 +20,9 @@ const isPasswordVisible = ref(false)
 const accountType = computed(() => {
   return store.state.auth.accountType
 })
+const constructionCompanies = computed(() => {
+  return store.state.construction.constructionCompanies
+})
 
 // METHODS
 const submitForm = () => {
@@ -29,15 +33,32 @@ const submitForm = () => {
       alert('Wrong email or password')
     }
   } else if (accountType.value.id == 'construction-company') {
-    if (form.value.email === 'admin' && form.value.password === 'admin') {
-      router.push({ name: 'construction-dashboard' })
-    } else {
+    let hasItem = false
+
+    constructionCompanies.value.forEach((item) => {
+      if (item.email === form.value.email && item.password === form.value.password) {
+        hasItem = true
+        setItem('id', item.id)
+        router.push({ name: 'construction-dashboard' })
+      }
+    })
+
+    if (hasItem === false) {
       alert('Wrong email or password')
     }
   } else {
     alert('nimadir xato')
   }
 }
+
+onMounted(() => {
+  // console.log('accountType', accountType.value);
+  if (accountType.value.id === 'construction-company') {
+    store.dispatch('construction/getConstructionCompanies').then((res) => {
+      // console.log('res', res);
+    })
+  }
+})
 </script>
 
 <template>

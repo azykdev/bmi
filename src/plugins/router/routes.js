@@ -35,7 +35,7 @@ export const routes = [
   // Authority Routes ========================== *** ============================
   {
     path: '/',
-    component: () => import('@/layouts/default.vue'),
+    component: () => import('@/layouts/authority.vue'),
     children: [
       {
         path: 'authority-dashboard',

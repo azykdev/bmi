@@ -87,7 +87,7 @@
               variant="tonal"
               append-icon="mdi mdi-arrow-right"
             >
-              Batasil
+              Batafsil
             </VBtn>
             <VBtn
               color="success"

@@ -48,5 +48,25 @@
       "lifetime": "2222-12-12",
       "createdAt": "2024-04-02"
     }
+  ],
+  "construction_companies": [
+    {
+      "id": "100",
+      "name": "c1",
+      "email": "c1@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "200",
+      "name": "c2",
+      "email": "c2@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "300",
+      "name": "c3",
+      "email": "c3@gmail.com",
+      "password": "123"
+    }
   ]
 }

@@ -1,5 +1,15 @@
 <script setup>
-import ConstructionLayoutWithVerticalNav from './components/ConstructionLayoutWithVerticalNav.vue'
+import { onMounted } from 'vue';
+import ConstructionLayoutWithVerticalNav from './components/ConstructionLayoutWithVerticalNav.vue';
+import { useStore } from 'vuex';
+import { getItem } from '@/helpers/persistaneStorage';
+
+const store = useStore()
+
+// MOUNTED
+onMounted(() => {
+  store.dispatch('construction/getConstructionCompany', getItem('id'))
+})
 </script>
 
 <template>

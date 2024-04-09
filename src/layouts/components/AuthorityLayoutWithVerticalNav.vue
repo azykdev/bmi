@@ -1,5 +1,5 @@
 <script setup>
-import NavItems from '@/layouts/components/NavItems.vue'
+import NavItems from '@/layouts/components/AuthorityNavItems.vue'
 import VerticalNavLayout from '@layouts/components/VerticalNavLayout.vue'
 import Footer from '@/layouts/components/Footer.vue'
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue'
