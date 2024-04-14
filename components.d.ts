@@ -14,6 +14,7 @@ declare module 'vue' {
     CardStatisticsVertical: typeof import('./src/@core/components/cards/CardStatisticsVertical.vue')['default']
     CardStatisticsWithImages: typeof import('./src/@core/components/cards/CardStatisticsWithImages.vue')['default']
     ConstructionTenderCard: typeof import('./src/components/cards/ConstructionTenderCard.vue')['default']
+    ConstructionTenderDialog: typeof import('./src/components/dialogs/ConstructionTenderDialog.vue')['default']
     DemoFormLayoutHorizontalForm: typeof import('./src/components/form-layouts/DemoFormLayoutHorizontalForm.vue')['default']
     DemoFormLayoutHorizontalFormWithIcons: typeof import('./src/components/form-layouts/DemoFormLayoutHorizontalFormWithIcons.vue')['default']
     DemoFormLayoutMultipleColumn: typeof import('./src/components/form-layouts/DemoFormLayoutMultipleColumn.vue')['default']

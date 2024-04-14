@@ -2,12 +2,17 @@ import { setItem } from "@/helpers/persistaneStorage"
 import ConstructionService from "@/services/construction"
 
 const state = {
+  tenderDialog: false,
   constructionCompanies: null,
   constructionCompany: null,
   isLoggedIn: null
 }
 
 const mutations = {
+  setTenderDialog(state, value) {
+    state.tenderDialog = value
+  },
+  
   // Get all construction companies
   getConCompaniesStart(state) {
     state.constructionCompanies = null

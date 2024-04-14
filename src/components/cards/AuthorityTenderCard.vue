@@ -83,17 +83,17 @@
           <VCol
             cols="12"
           >
-            <h6>Ishtirokchilar:</h6>
-            <ul v-if="tender.participants.length > 0" class="text-blue-400">
+            <h6 class="mb-2">Ishtirokchilar:</h6>
+            <ol type="1" v-if="tender.participants.length > 0">
               <li
-                v-for="item in tender.participants"
+                v-for="(item, index) in tender.participants"
                 :key="item"
+                class="bg-blue-100 px-3 py-1 rounded-md mb-2"
               >
-                — {{ item.name }}
+                <span class="font-bold">{{ index + 1 }}.</span> <span>{{ item.name }}</span>
               </li>
-            </ul>
+            </ol>
             <p v-else>---</p>
-            
           </VCol>
         </VRow>
       </VCardText>

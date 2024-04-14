@@ -77,18 +77,19 @@
             </ul>
           </VCol>
           <VCol cols="12">
-            <h6>Ishtirokchilar:</h6>
-            <ul
+            <h6 class="mb-2">Ishtirokchilar:</h6>
+            <ol
+              type="1"
               v-if="tender.participants.length > 0"
-              class="text-blue-400"
             >
               <li
-                v-for="item in tender.participants"
+                v-for="(item, index) in tender.participants"
                 :key="item"
+                class="bg-blue-100 px-3 py-1 rounded-md mb-2"
               >
-                — {{ item.name }}
+                <span class="font-bold">{{ index + 1 }}.</span> <span>{{ item.name }}</span>
               </li>
-            </ul>
+            </ol>
             <p v-else>---</p>
           </VCol>
         </VRow>
@@ -108,7 +109,7 @@
           v-if="hasItem === false"
           color="success"
           variant="tonal"
-          @click="attendTenderParticipants(tender.id)"
+          @click="setDialog(true)"
         >
           Qatnashish
         </VBtn>
@@ -116,13 +117,52 @@
           v-else
           color="error"
           variant="tonal"
-          @click="cancelTenderParticipants(tender.id)"
+          @click="cancelTenderParticipants"
         >
           Bekor qilish
         </VBtn>
       </VCardActions>
     </VCard>
   </VCol>
+
+  <template>
+    <div class="text-center pa-4 absolute">
+      <v-dialog
+        v-model="dialog"
+        width="auto"
+        persistent
+      >
+        <v-card
+          prepend-icon="ri-auction-line"
+          :title="tender.name + ' ga qatnashish'"
+          class="w-[380px] sm:w-[600px] md:w-[1000px]"
+        >
+          <v-card-text class="max-h-[90vh] overflow-auto">
+            <v-form>
+              <v-textarea
+                label="Izoh"
+                v-model="comment"
+              ></v-textarea>
+              <v-btn
+                color="primary"
+                class="mt-3"
+                @click="attendTenderParticipants"
+                >Yuborish</v-btn
+              >
+            </v-form>
+          </v-card-text>
+
+          <template v-slot:actions>
+            <v-btn
+              class="ms-auto"
+              text="Back"
+              @click="setDialog(false)"
+            ></v-btn>
+          </template>
+        </v-card>
+      </v-dialog>
+    </div>
+  </template>
 </template>
 
 <script>
@@ -131,6 +171,8 @@ export default {
   data() {
     return {
       hasItem: false,
+      comment: '',
+      dialog: false,
     }
   },
   props: {
@@ -153,23 +195,33 @@ export default {
     }
   },
   methods: {
-    attendTenderParticipants(id) {
-      const newData = {
-        ...this.tender,
-        participants: [...this.tender.participants, this.constructionCompany],
-      }
-      this.$store.dispatch('authority/attendTenderParticipants', newData).then(() => {
-        this.$store.dispatch('authority/getTenders')
-      })
+    setDialog(value) {
+      this.dialog = value
     },
-    cancelTenderParticipants(data) {
-      const newData = {
-        ...this.tender,
-        participants: this.tender.participants.filter(item => item.id !== this.constructionCompany.id),
+    attendTenderParticipants() {
+      if (this.comment) {
+        this.constructionCompany.comment = this.comment
+        const data = {
+          ...this.tender,
+          participants: [...this.tender.participants, this.constructionCompany],
+        }
+        this.$store.dispatch('authority/attendTenderParticipants', data).then(() => {
+          this.comment = ''
+          this.dialog = false
+          this.$store.dispatch('authority/getTenders')
+        })
       }
-      this.$store.dispatch('authority/cancelTenderParticipants', newData).then(() => {
-        this.$store.dispatch('authority/getTenders')
-      })
+    },
+    cancelTenderParticipants() {
+      if (confirm('Bekor qilmoqchimisiz?')) {
+        const newData = {
+          ...this.tender,
+          participants: this.tender.participants.filter(item => item.id !== this.constructionCompany.id),
+        }
+        this.$store.dispatch('authority/cancelTenderParticipants', newData).then(() => {
+          this.$store.dispatch('authority/getTenders')
+        })
+      }
     },
   },
 }

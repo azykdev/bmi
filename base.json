@@ -8,10 +8,9 @@
       "fundsType": "Mahalliy budjet",
       "constructionType": "No turar",
       "constructionConditions": [
-        "shart 1 ",
-        "shart 2 ",
-        " Shart 3 ",
-        " asgh"
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "\nLorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "\nLorem Ipsum is simply dummy text of the printing and typesetting industry."
       ],
       "customer": "Buyurtmachi 1",
       "lifetime": "2024-04-16",
@@ -21,7 +20,8 @@
           "id": "100",
           "name": "c1",
           "email": "c1@gmail.com",
-          "password": "123"
+          "password": "123",
+          "comment": "izoh 1"
         }
       ]
     },
@@ -45,9 +45,27 @@
           "id": "100",
           "name": "c1",
           "email": "c1@gmail.com",
-          "password": "123"
+          "password": "123",
+          "comment": "izoh 2\n"
         }
       ]
+    },
+    {
+      "id": "0718",
+      "name": "tender 3",
+      "adress": "manzil 3",
+      "area": "112",
+      "fundsType": "Mahalliy budjet",
+      "constructionType": "Turar",
+      "constructionConditions": [
+        "bgvbg ",
+        " vrbgf ",
+        " svfbgf "
+      ],
+      "customer": "qwerf",
+      "lifetime": "1212-11-22",
+      "createdAt": "2024-04-14",
+      "participants": []
     }
   ],
   "construction_companies": [
