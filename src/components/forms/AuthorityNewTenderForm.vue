@@ -122,6 +122,8 @@ export default {
         lifetime: '',
         createdAt: new Date().toISOString().slice(0, 10),
         participants: [],
+        re_tender: false,
+        re_tender_count: 0,
       },
     }
   },
@@ -130,9 +132,10 @@ export default {
       let validate = true
 
       for (const val in this.formData) {
+        if (val === 'participants') break
+
         if (!this.formData[val]) {
           validate = false
-          break
         }
       }
 
@@ -165,9 +168,12 @@ export default {
           lifetime: '',
           createdAt: new Date().toISOString().slice(0, 10),
           participants: [],
+          re_tender: false,
+          re_tender_count: 0,
         }
       } else {
         alert("Malumotlarni to'ldiring")
+        console.log(this.formData);
       }
     },
   },

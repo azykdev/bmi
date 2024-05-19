@@ -14,7 +14,6 @@ declare module 'vue' {
     CardStatisticsVertical: typeof import('./src/@core/components/cards/CardStatisticsVertical.vue')['default']
     CardStatisticsWithImages: typeof import('./src/@core/components/cards/CardStatisticsWithImages.vue')['default']
     ConstructionTenderCard: typeof import('./src/components/cards/ConstructionTenderCard.vue')['default']
-    ConstructionTenderDialog: typeof import('./src/components/dialogs/ConstructionTenderDialog.vue')['default']
     DemoFormLayoutHorizontalForm: typeof import('./src/components/form-layouts/DemoFormLayoutHorizontalForm.vue')['default']
     DemoFormLayoutHorizontalFormWithIcons: typeof import('./src/components/form-layouts/DemoFormLayoutHorizontalFormWithIcons.vue')['default']
     DemoFormLayoutMultipleColumn: typeof import('./src/components/form-layouts/DemoFormLayoutMultipleColumn.vue')['default']
@@ -30,7 +29,6 @@ declare module 'vue' {
     TableDensity: typeof import('./src/components/tables/TableDensity.vue')['default']
     TableFixedHeader: typeof import('./src/components/tables/TableFixedHeader.vue')['default']
     TableHeight: typeof import('./src/components/tables/TableHeight.vue')['default']
-    TenderCard: typeof import('./src/components/cards/TenderCard.vue')['default']
     ThemeSwitcher: typeof import('./src/@core/components/ThemeSwitcher.vue')['default']
     VueApexCharts: typeof import('vue3-apexcharts')['default']
   }

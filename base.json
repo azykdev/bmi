@@ -22,6 +22,13 @@
           "email": "c1@gmail.com",
           "password": "123",
           "comment": "izoh 1"
+        },
+        {
+          "id": "200",
+          "name": "c2",
+          "email": "c2@gmail.com",
+          "password": "123",
+          "comment": "izoh1"
         }
       ]
     },
@@ -52,8 +59,8 @@
     },
     {
       "id": "0718",
-      "name": "tender 3",
-      "adress": "manzil 3",
+      "name": "tender 33",
+      "adress": "manzil 33",
       "area": "112",
       "fundsType": "Mahalliy budjet",
       "constructionType": "Turar",

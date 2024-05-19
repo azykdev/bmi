@@ -25,14 +25,12 @@
                 :value="item"
                 color="primary"
                 variant="plain"
-                class="border mb-3 md:w-1/3"
+                class="border mb-3 md:w-1/3 text-center"
                 @click="chooseAccountType(item)"
               >
-                <template v-slot:prepend>
-                  <v-icon :icon="item.icon"></v-icon>
-                </template>
+              
 
-                <v-list-item-title v-text="item.name"></v-list-item-title>
+                <v-list-item-title class="flex items-center justify-center"> <span :class="item.icon" class="text-xl me-2"></span> {{ item.name }}</v-list-item-title>
               </v-list-item>
             </v-list>
           </div>

@@ -3,8 +3,6 @@
     id="home-header"
     class="bg-[#e8f7f5] pt-[144px] relative"
   >
-    <!-- gradient shape -->
-    <div id="home-header-gradient"></div>
 
     <div
       id="home-header-wrapper"
@@ -18,15 +16,12 @@
         <div class="text-center px-6">
           <!-- 👉 Title -->
           <h1 class="text-5xl font-bold text-violet-600">
-            All in one sass application <br />
-            for your business
+            Eng qulay <br> uy-joy sotish platformasi
           </h1>
 
           <!-- 👉 Description -->
           <p class="text-md font-semibold my-7">
-            No coding required to make customization <br />
-
-            The live customer has everything your marketing needs
+            Bizning joy sotish saytimiz sizga dunyoning eng so'nggi va eng qulay joylarini topishda yordam beradi. <br> Sifatli va qulay foydalanuvchilar interfeysi bilan, <br> biznesingiz uchun mos keladigan joylarni aniqlash va xarid qilish osonlashadi.
           </p>
 
           <!-- 👉 CTA -->
@@ -53,15 +48,5 @@ export default {
 </script>
 
 <style scoped>
-#home-header-gradient {
-  position: absolute;
-  bottom: 10%;
-  left: calc(50% - 300px);
-  height: 600px;
-  width: 600px;
-  border-radius: 50%;
-  background: linear-gradient(90deg, #f59bff 0%, #ff69beeb 100%);
-  z-index: 0;
-  filter: blur(3100px);
-}
+
 </style>

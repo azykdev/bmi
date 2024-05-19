@@ -80,17 +80,19 @@
               </li>
             </ul>
           </VCol>
-          <VCol
-            cols="12"
-          >
+          <VCol cols="12">
             <h6 class="mb-2">Ishtirokchilar:</h6>
-            <ol type="1" v-if="tender.participants.length > 0">
+            <ol
+              type="1"
+              v-if="tender.participants.length > 0"
+            >
               <li
                 v-for="(item, index) in tender.participants"
                 :key="item"
                 class="bg-blue-100 px-3 py-1 rounded-md mb-2"
               >
-                <span class="font-bold">{{ index + 1 }}.</span> <span>{{ item.name }}</span>
+                <span class="font-bold text-blue-400">{{ item.name }}</span> 
+                <p>{{ item.comment }}</p>
               </li>
             </ol>
             <p v-else>---</p>
@@ -106,7 +108,6 @@
           icon="mdi mdi-pencil"
           @click="getEditData(tender.id)"
         >
-          
         </VBtn>
         <VBtn
           color="error"
@@ -114,7 +115,6 @@
           icon="mdi mdi-delete"
           @click="deleteTender(tender.id)"
         >
-          
         </VBtn>
       </VCardActions>
     </VCard>
@@ -138,9 +138,11 @@ export default {
       })
     },
     deleteTender(id) {
-      this.$store.dispatch('authority/deleteTender', id).then(() => {
-        this.$store.dispatch('authority/getTenders')
-      })
+      if (confirm("E'lonni o'chirmoqchimisiz?")) {
+        this.$store.dispatch('authority/deleteTender', id).then(() => {
+          this.$store.dispatch('authority/getTenders')
+        })
+      }
     },
   },
 }

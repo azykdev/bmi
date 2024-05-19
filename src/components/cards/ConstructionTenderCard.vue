@@ -139,10 +139,25 @@
         >
           <v-card-text class="max-h-[90vh] overflow-auto">
             <v-form>
+              <!-- comment -->
               <v-textarea
                 label="Izoh"
                 v-model="comment"
+                prepend-inner-icon="mdi mdi-comment"
+                required
               ></v-textarea>
+
+              <!-- file -->
+              <v-file-input
+                label="Fayl yuklash"
+                v-model="file"
+                class="mt-5"
+                prepend-icon
+                prepend-inner-icon="mdi mdi-file"
+                required
+                accept="*/*"
+              ></v-file-input>
+
               <v-btn
                 color="primary"
                 class="mt-3"
@@ -172,6 +187,7 @@ export default {
     return {
       hasItem: false,
       comment: '',
+      file: null,
       dialog: false,
     }
   },
@@ -199,19 +215,23 @@ export default {
       this.dialog = value
     },
     attendTenderParticipants() {
-      if (this.comment) {
+      if (this.comment && this.file) {
         this.constructionCompany.comment = this.comment
+        this.constructionCompany.file = this.file
+
         const data = {
           ...this.tender,
           participants: [...this.tender.participants, this.constructionCompany],
         }
         this.$store.dispatch('authority/attendTenderParticipants', data).then(() => {
           this.comment = ''
+          this.file = null
           this.dialog = false
           this.$store.dispatch('authority/getTenders')
         })
       }
     },
+    
     cancelTenderParticipants() {
       if (confirm('Bekor qilmoqchimisiz?')) {
         const newData = {
