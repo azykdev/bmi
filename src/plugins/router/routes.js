@@ -76,12 +76,12 @@ export const routes = [
     component: () => import('@/layouts/construction-company.vue'),
     children: [
       {
-        path: 'construction-dashboard',
+        path: '/:name/dashboard',
         name: 'construction-dashboard',
         component: () => import('@/pages/construction/dashboard.vue'),
       },
       {
-        path: 'construction-tenders',
+        path: '/:name/tenders',
         name: 'construction-tenders',
         component: () => import('@/pages/construction/tenders.vue'),
       }

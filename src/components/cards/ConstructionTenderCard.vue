@@ -87,7 +87,18 @@
                 :key="item"
                 class="bg-blue-100 px-3 py-1 rounded-md mb-2"
               >
-                <span class="font-bold">{{ index + 1 }}.</span> <span>{{ item.name }}</span>
+                <span class="font-bold">{{ item.name }}</span> 
+
+                <p v-if="item.name == constructionCompany.name">{{ item.comment }}</p>
+
+
+                <VAvatar
+                  v-if="item.file && item.name == constructionCompany.name"
+                  rounded="lg"
+                  size="100"
+                  class="mt-2"
+                  :image="item.file"
+                />
               </li>
             </ol>
             <p v-else>---</p>
@@ -147,16 +158,26 @@
                 required
               ></v-textarea>
 
-              <!-- file -->
+              <!-- fayl -->
               <v-file-input
                 label="Fayl yuklash"
-                v-model="file"
                 class="mt-5"
                 prepend-icon
-                prepend-inner-icon="mdi mdi-file"
+                prepend-inner-icon="mdi mdi-image"
                 required
                 accept="*/*"
+                ref="file"
+                @change="changeFile"
               ></v-file-input>
+
+              <VAvatar
+                rounded="lg"
+                size="100"
+                class="mt-5"
+                :image="file"
+              />
+
+              <br />
 
               <v-btn
                 color="primary"
@@ -214,6 +235,16 @@ export default {
     setDialog(value) {
       this.dialog = value
     },
+    changeFile(file) {
+      const fileReader = new FileReader()
+      const { files } = file.target
+      if (files && files.length) {
+        fileReader.readAsDataURL(files[0])
+        fileReader.onload = () => {
+          if (typeof fileReader.result === 'string') this.file = fileReader.result
+        }
+      }
+    },
     attendTenderParticipants() {
       if (this.comment && this.file) {
         this.constructionCompany.comment = this.comment
@@ -231,7 +262,7 @@ export default {
         })
       }
     },
-    
+
     cancelTenderParticipants() {
       if (confirm('Bekor qilmoqchimisiz?')) {
         const newData = {

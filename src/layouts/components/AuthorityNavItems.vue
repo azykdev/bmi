@@ -9,7 +9,7 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
   <VerticalNavLink
     :item="{
       title: 'Dashboard',
-      to: '/authority-dashboard',
+      name: 'authority-dashboard',
       icon: 'ri-dashboard-line',
     }"
   />
@@ -56,19 +56,19 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
     <VerticalNavLink
       :item="{
         title: 'Tenderlar',
-        to: '/authority-tenders',
+        name: 'authority-tenders',
       }"
     />
     <VerticalNavLink
       :item="{
         title: 'Tender g\'olibi',
-        to: '/authority-victory-tender',
+        name: 'authority-victory-tender',
       }"
     />
     <VerticalNavLink
       :item="{
         title: 'Tenderni yopish',
-        to: '/authority-close-tender',
+        name: 'authority-close-tender',
       }"
     />
   </VerticalNavGroup>

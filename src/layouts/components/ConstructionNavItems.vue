@@ -2,6 +2,13 @@
 import VerticalNavSectionTitle from '@/@layouts/components/VerticalNavSectionTitle.vue'
 import VerticalNavGroup from '@layouts/components/VerticalNavGroup.vue'
 import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
+import { useStore } from 'vuex';
+
+const store = useStore()
+
+const constructionCompany = computed(() => {
+  return store.state.construction.constructionCompany
+})
 </script>
 
 <template>
@@ -9,7 +16,8 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
   <VerticalNavLink
     :item="{
       title: 'Dashboard',
-      to: '/construction-dashboard',
+      name: 'construction-dashboard',
+      params: {name: constructionCompany?.name},
       icon: 'ri-dashboard-line',
     }"
   />
@@ -30,7 +38,8 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
     <VerticalNavLink
       :item="{
         title: 'Tenderlar',
-        to: '/construction-tenders',
+        name: 'construction-tenders',
+        params: {name: constructionCompany?.name},
       }"
     />
   </VerticalNavGroup>

@@ -24,6 +24,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch('authority/getTenders')
+    // this.$store.dispatch('construction/getConstructionCompany')
   },
   components: {
     ConstructionTenderCard

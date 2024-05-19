@@ -39,7 +39,7 @@ const submitForm = () => {
       if (item.email === form.value.email && item.password === form.value.password) {
         hasItem = true
         setItem('id', item.id)
-        router.push({ name: 'construction-dashboard' })
+        router.push({ name: 'construction-dashboard', params: { name: item.name } })
       }
     })
 

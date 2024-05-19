@@ -91,8 +91,14 @@
                 :key="item"
                 class="bg-blue-100 px-3 py-1 rounded-md mb-2"
               >
-                <span class="font-bold text-blue-400">{{ item.name }}</span> 
+                <span class="font-bold text-blue-400">{{ item.name }}</span>
                 <p>{{ item.comment }}</p>
+                <img
+                  @click="setDialog(true, item.file)"
+                  :src="item.file"
+                  alt=""
+                  class="w-[100px] mt-3"
+                />
               </li>
             </ol>
             <p v-else>---</p>
@@ -119,11 +125,41 @@
       </VCardActions>
     </VCard>
   </VCol>
+
+  <template>
+    <div class="text-center pa-4 absolute">
+      <v-dialog
+        v-model="dialog"
+        width="auto"
+        persistent
+      >
+        <v-card class="w-[380px] sm:w-[600px] md:w-[800px] py-5">
+          <v-card-text class="">
+            <img :src="dialogImage" alt="" class="w-full">
+          </v-card-text>
+
+          <template v-slot:actions>
+            <v-btn
+              class="ms-auto"
+              text="Back"
+              @click="setDialog(false)"
+            ></v-btn>
+          </template>
+        </v-card>
+      </v-dialog>
+    </div>
+  </template>
 </template>
 
 <script>
 export default {
   name: 'TenderCard',
+  data() {
+    return {
+      dialog: false,
+      dialogImage: '',
+    }
+  },
   props: {
     tender: {
       type: Object,
@@ -131,6 +167,10 @@ export default {
     },
   },
   methods: {
+    setDialog(value, data) {
+      this.dialog = value
+      this.dialogImage = data
+    },
     getEditData(id) {
       console.log(id)
       this.$store.dispatch('authority/getTender', id).then(res => {

@@ -13,8 +13,8 @@ const props = defineProps({
     :class="{ disabled: item.disable }"
   >
     <Component
-      :is="item.to ? 'RouterLink' : 'a'"
-      :to="item.to"
+      :is="item.name ? 'RouterLink' : 'a'"
+      :to="{ name: item.name, params: item?.params }"
       :href="item.href"
       :target="item.target"
     >
