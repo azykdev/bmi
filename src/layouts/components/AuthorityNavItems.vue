@@ -67,7 +67,7 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
     />
     <VerticalNavLink
       :item="{
-        title: 'Tenderni yopish',
+        title: 'Yopilgan tenderlar',
         name: 'authority-close-tender',
       }"
     />

@@ -10,11 +10,14 @@
       <VBtn @click="$store.commit('authority/setNewTenderDialog', true)"> YANGI TENDER </VBtn>
       <AuthorityNewTenderDialog />
 
+      <div v-if="!tenders" class="w-full h-full flex justify-center items-center py-5">
+        <v-progress-circular color="primary" indeterminate :size="43"></v-progress-circular>
+      </div>
+
       <!-- Tenders -->
       <VRow
         class="my-5"
         v-if="tenders"
-        id="tenders"
       >
         <AuthorityTenderCard
           v-for="tender in tenders"

@@ -5,7 +5,18 @@ const state =  {
   tenders: [],
   tender: null,
   error: null,
-  loading: false
+  loading: false,
+
+  // TODO: Autority Viztory and Tenders
+  vicTenders: [],
+  vicTender: null,
+}
+
+const getters = {
+  // Closed Tenders
+  getClosedTenders(state) {
+    return state?.tenders?.filter(tender => tender.closed === true)
+  },
 }
 
 const mutations = {
@@ -32,7 +43,28 @@ const mutations = {
   getTenderSuccess(state, tender) {
     state.tender = tender
     state.loading = false
-  }
+  },
+
+  // TODO: Autority Viztory and Tenders
+
+  // Get all tenders
+  getVicTendersStart(state) {
+    state.loading = true
+    state.vicTenders = null
+  },
+  getVicTendersSuccess(state, tenders) {
+    state.vicTenders = tenders
+    state.loading = false
+  },
+
+  // Get tender
+  getVicTenderStart(state) {
+    state.loading = true
+  },
+  getVicTenderSuccess(state, tender) {
+    state.vicTender = tender
+    state.loading = false
+  },
 }
 
 const actions = {
@@ -105,37 +137,69 @@ const actions = {
     })
   },
 
-  // Attend tender
-  attendTenderParticipants(context, data) {
-    return new Promise((resolve, reject) => {
-      AuthorityService.attendTenderParticipants(data)
+
+  // TODO: Autority Viztory and Tenders
+
+  // Get vic tenders
+  getVicTenders(context) {
+    return new Promise((resolve) => {
+      context.commit('getVicTendersStart')
+      AuthorityService.getVicTenders()
         .then(res => {
+          context.commit('getVicTendersSuccess', res.data)
           resolve(res)
-        })
-        .catch(error => {
-          reject(error)
         })
     })
   },
 
-  // Cancel tender
-  cancelTenderParticipants(context, data) {
-    return new Promise((resolve, reject) => {
-      AuthorityService.cancelTenderParticipants(data)
+  // Get vic tender
+  getVicTender(context, id) {
+    return new Promise((resolve) => {
+      context.commit('getVicTenderStart')
+      AuthorityService.getVicTender(id)
+        .then(res => {
+          context.commit('getVicTenderSuccess', res.data)
+          resolve(res)
+        })
+    })
+  },
+
+  // Create vic tender
+  createVicTender(context, data) {
+    return new Promise((resolve) => {
+      AuthorityService.createVicTender(data)
         .then(res => {
           resolve(res)
         })
-        .catch(error => {
-          reject(error)
+    })
+  },
+
+  // Update vic tender
+  updateVicTender(context, data) {
+    return new Promise((resolve) => {
+      AuthorityService.updateVicTender(data)
+        .then(res => {
+          resolve(res)
         })
     })
-  }
+  },
+
+  // Delete vic tender
+  deleteVicTender(context, id) {
+    return new Promise((resolve) => {
+      AuthorityService.deleteVicTender(id)
+        .then(res => {
+          resolve(res)
+        })
+    })
+  },
 }
 
 
 export default {
   namespaced: true,
   state,
+  getters,
   mutations,
   actions,
 }

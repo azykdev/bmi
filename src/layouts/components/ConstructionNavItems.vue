@@ -42,5 +42,12 @@ const constructionCompany = computed(() => {
         params: {name: constructionCompany?.name},
       }"
     />
+    <VerticalNavLink
+      :item="{
+        title: 'Mening tenderlarim',
+        name: 'construction-my-tenders',
+        params: {name: constructionCompany?.name},
+      }"
+    />
   </VerticalNavGroup>
 </template>

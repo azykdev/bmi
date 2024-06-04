@@ -84,6 +84,11 @@ export const routes = [
         path: '/:name/tenders',
         name: 'construction-tenders',
         component: () => import('@/pages/construction/tenders.vue'),
+      },
+      {
+        path: '/:name/my-tenders',
+        name: 'construction-my-tenders',
+        component: () => import('@/pages/construction/my-tenders.vue'),
       }
     ],
   }

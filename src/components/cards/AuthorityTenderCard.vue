@@ -89,15 +89,25 @@
               <li
                 v-for="(item, index) in tender.participants"
                 :key="item"
-                class="bg-blue-100 px-3 py-1 rounded-md mb-2"
+                class="px-3 py-1 rounded-md mb-2"
+                :class="item.id == tender.victor?.id ? 'bg-green-200' : 'bg-yellow-50'"
               >
-                <span class="font-bold text-blue-400">{{ item.name }}</span>
+                <h6 class="flex justify-between items-center">
+                  <span class="font-bold text-blue-400">{{ item.name }}</span>
+                  <v-btn
+                    :disabled="item.id == tender.victor?.id"
+                    class="rounded-full"
+                    :color="item.id == tender.victor?.id ? 'success' : 'yellow-lighten-1'"
+                    @click="sendVictory(tender, item)"
+                    ><span class="mdi mdi-trophy text-xl text-yellow-400"></span
+                  ></v-btn>
+                </h6>
                 <p>{{ item.comment }}</p>
                 <img
                   @click="setDialog(true, item.file)"
                   :src="item.file"
                   alt=""
-                  class="w-[100px] mt-3"
+                  class="w-[100px] mt-3 rounded-lg"
                 />
               </li>
             </ol>
@@ -135,7 +145,11 @@
       >
         <v-card class="w-[380px] sm:w-[600px] md:w-[800px] py-5">
           <v-card-text class="">
-            <img :src="dialogImage" alt="" class="w-full">
+            <img
+              :src="dialogImage"
+              alt=""
+              class="w-full"
+            />
           </v-card-text>
 
           <template v-slot:actions>
@@ -180,6 +194,26 @@ export default {
     deleteTender(id) {
       if (confirm("E'lonni o'chirmoqchimisiz?")) {
         this.$store.dispatch('authority/deleteTender', id).then(() => {
+          this.$store.dispatch('authority/getTenders')
+        })
+      }
+    },
+    sendVictory(tender, item) {
+      const newData = {
+        ...this.tender,
+        victor: item,
+        closed: true,
+      }
+      if (confirm(`${item.name} ni g'olib deb belgilamoqchimisiz?`)) {
+        this.$store.dispatch('authority/updateTender', newData).then(() => {
+          delete newData.participants
+
+          if (tender.victor != null && tender.victor.id != item.id) {
+            this.$store.dispatch('authority/updateVicTender', newData)
+          } else {
+            this.$store.dispatch('authority/createVicTender', newData)
+          }
+
           this.$store.dispatch('authority/getTenders')
         })
       }

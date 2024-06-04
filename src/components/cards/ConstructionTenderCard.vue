@@ -76,7 +76,11 @@
               </li>
             </ul>
           </VCol>
-          <VCol cols="12">
+          <VCol cols="12" v-if="tender.closed" class="px-3 py-1 rounded-md mb-2" :class="tender.victor.id == constructionCompany.id ? 'bg-green-200' : 'bg-yellow-50'">
+            <h6 class="mb-2">🏆 Tender g'olibi: <span class=" text-2xl font-semibold"> {{ tender.victor.name }}</span> </h6>
+            <p class="text-red-400 text-2xl py-4" v-if="tender.victor.id == constructionCompany.id">Tabriklaymiz siz g'olib bo'ldingiz!</p>
+          </VCol>
+          <VCol cols="12" v-else>
             <h6 class="mb-2">Ishtirokchilar:</h6>
             <ol
               type="1"
@@ -87,10 +91,9 @@
                 :key="item"
                 class="bg-blue-100 px-3 py-1 rounded-md mb-2"
               >
-                <span class="font-bold">{{ item.name }}</span> 
+                <span class="font-bold">{{ item.name }}</span>
 
                 <p v-if="item.name == constructionCompany.name">{{ item.comment }}</p>
-
 
                 <VAvatar
                   v-if="item.file && item.name == constructionCompany.name"
@@ -116,22 +119,24 @@
         >
           Batafsil
         </VBtn>
-        <VBtn
-          v-if="hasItem === false"
-          color="success"
-          variant="tonal"
-          @click="setDialog(true)"
-        >
-          Qatnashish
-        </VBtn>
-        <VBtn
-          v-else
-          color="error"
-          variant="tonal"
-          @click="cancelTenderParticipants"
-        >
-          Bekor qilish
-        </VBtn>
+        <div v-if="tender.closed === false" class="ml-2">
+          <VBtn
+            v-if="hasItem === false"
+            color="success"
+            variant="tonal"
+            @click="setDialog(true)"
+          >
+            Qatnashish
+          </VBtn>
+          <VBtn
+            v-else
+            color="error"
+            variant="tonal"
+            @click="cancelTenderParticipants"
+          >
+            Bekor qilish
+          </VBtn>
+        </div>
       </VCardActions>
     </VCard>
   </VCol>
@@ -254,7 +259,7 @@ export default {
           ...this.tender,
           participants: [...this.tender.participants, this.constructionCompany],
         }
-        this.$store.dispatch('authority/attendTenderParticipants', data).then(() => {
+        this.$store.dispatch('authority/updateTender', data).then(() => {
           this.comment = ''
           this.file = null
           this.dialog = false
@@ -269,7 +274,7 @@ export default {
           ...this.tender,
           participants: this.tender.participants.filter(item => item.id !== this.constructionCompany.id),
         }
-        this.$store.dispatch('authority/cancelTenderParticipants', newData).then(() => {
+        this.$store.dispatch('authority/updateTender', newData).then(() => {
           this.$store.dispatch('authority/getTenders')
         })
       }

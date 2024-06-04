@@ -26,14 +26,29 @@ const AuthorityService = {
     return axios.delete(`/authority_tenders/${id}`);
   },
 
-  attendTenderParticipants: (data) => {
-    return axios.put(`/authority_tenders/${data.id}`, data);
+
+
+  // TODO: Autority Viztory and Tenders
+
+  getVicTenders: () => {
+    return axios.get('/authority_victory_tenders');
   },
 
-  cancelTenderParticipants: (data) => {
-    return axios.put(`/authority_tenders/${data.id}`, data);
-  }
+  getVicTender: (id) => {
+    return axios.get(`/authority_victory_tenders/${id}/`);
+  },
 
+  createVicTender: (data) => {
+    return axios.post('/authority_victory_tenders', data);
+  },
+
+  updateVicTender: (data) => {
+    return axios.put(`/authority_victory_tenders/${data.id}`, data);
+  },
+
+  deleteVicTender: (id) => {
+    return axios.delete(`/authority_victory_tenders/${id}`);
+  },
 };
 
 export default AuthorityService;
