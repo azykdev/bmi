@@ -1,14 +1,18 @@
 <template>
+  
   <VCol
     v-if="tender.victor.id == constructionCompany.id"
     cols="12"
   >
     <VCard>
       <VCardTitle class="border-b mb-2 text-violet-600 d-flex justify-between"
-        ><span>{{ tender.name }} {{ tender.victor.name }}</span>
+        ><span>{{ tender.name }} </span>
       </VCardTitle>
 
       <VCardText>
+        <h3 class="text-slate-800  mb-3 bg-slate-200 rounded px-3 pb-1 inline-block">qurilish kompanyasi: <span class="text-slate-700 font-bold text-xl">{{ tender.victor.name }}</span></h3>
+
+        <p class="text-slate-500 text-xl mb-3">Bajarilgan ishlarni kiriting:</p>
         <VForm>
           <VRow>
             <VCol

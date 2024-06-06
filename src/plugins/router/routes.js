@@ -12,6 +12,11 @@ export const routes = [
         component: () => import('@/pages/login.vue'),
       },
       {
+        path: 'user/login',
+        name: 'user-login',
+        component: () => import('@/pages/user-login.vue'),
+      },
+      {
         path: 'register',
         component: () => import('@/pages/register.vue'),
       },
@@ -23,11 +28,6 @@ export const routes = [
         path: 'home',
         name: 'home',
         component: () => import('@/pages/home.vue'),
-      },
-      {
-        path: 'citizen',
-        name: 'citizen',
-        component: () => import('@/pages/citizen/citizen.vue'),
       }
     ],
   },
@@ -91,5 +91,18 @@ export const routes = [
         component: () => import('@/pages/construction/my-tenders.vue'),
       }
     ],
-  }
+  },
+
+  // Citizen Routes ============================= *** ============================
+  {
+    path: '/',
+    component: () => import('@/layouts/citizen.vue'),
+    children: [
+      {
+        path: 'citizen-home',
+        name: 'citizen-home',
+        component: () => import('@/pages/citizen/home.vue'),
+      }
+    ],
+  },
 ]

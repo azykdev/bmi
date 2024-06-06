@@ -55,7 +55,7 @@ onMounted(() => {
   // console.log('accountType', accountType.value);
   if (accountType.value.id === 'construction-company') {
     store.dispatch('construction/getConstructionCompanies').then((res) => {
-      // console.log('res', res);
+      console.log('res', res);
     })
   }
 })

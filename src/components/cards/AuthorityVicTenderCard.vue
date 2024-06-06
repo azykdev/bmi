@@ -17,7 +17,7 @@
           v-for="item in tender.works"
           class="border-b bg-slate-100 mb-3 p-3 rounded"
         >
-          <div class="flex justify-between mb-3 gap-5">
+          <div class="flex mb-3 gap-5">
             <img
               :src="item.file"
               alt=""

@@ -90,7 +90,7 @@ export default {
       }
 
       if (accountType.id === 'citizen') {
-        this.$router.push({ name: 'citizen' })
+        this.$router.push({ name: 'citizen-home' })
         return
       }
     },

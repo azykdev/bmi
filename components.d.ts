@@ -15,6 +15,7 @@ declare module 'vue' {
     CardStatisticsHorizontal: typeof import('./src/@core/components/cards/CardStatisticsHorizontal.vue')['default']
     CardStatisticsVertical: typeof import('./src/@core/components/cards/CardStatisticsVertical.vue')['default']
     CardStatisticsWithImages: typeof import('./src/@core/components/cards/CardStatisticsWithImages.vue')['default']
+    CitizenTenderCard: typeof import('./src/components/cards/CitizenTenderCard.vue')['default']
     ConstructionMyTenders: typeof import('./src/components/cards/ConstructionMyTenders.vue')['default']
     ConstructionMyTendersCard: typeof import('./src/components/cards/ConstructionMyTendersCard.vue')['default']
     ConstructionTenderCard: typeof import('./src/components/cards/ConstructionTenderCard.vue')['default']
